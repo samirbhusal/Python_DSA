@@ -1,9 +1,9 @@
 # Check if an Array is Sorted
 # arr[] = [10, 20, 30, 5, 6]
-def isSorted(arr):
-    n = len(arr)
+def isSorted(nums_arr):
+    n = len(nums_arr)
     for i in range(1, n):
-        if (arr[i-1] > arr[i]):
+        if nums_arr[i - 1] > nums_arr[i]:
             return False
     return True
 
