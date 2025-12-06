@@ -1,7 +1,7 @@
-#1 Pair of numbers (int) that sum to target
+# 1 Pair of numbers (int) that sum to target
 def check_for_target(nums, target):
     left = 0
-    right = len(nums)-1
+    right = len(nums) - 1
     while left < right:
         current_Sum = nums[left] + nums[right]
         if current_Sum == target:
@@ -13,7 +13,8 @@ def check_for_target(nums, target):
             left += 1
     return False
 
-#Leaders in an array
+
+# Leaders in an array
 # Given an array arr[] of size n, the task is to find all the Leaders in the array.
 # An element is a Leader if it is greater than or equal to all the elements to its right side.
 
@@ -22,7 +23,7 @@ def checkLeaderInArray(nums):
     n = len(nums)
 
     for i in range(n):
-        for j in range(i+1, n):
+        for j in range(i + 1, n):
             if nums[i] < nums[j]:
                 break
         else:
@@ -30,19 +31,41 @@ def checkLeaderInArray(nums):
 
     return leaders
 
+
 # Using Suffix Maximum - O(n) Time and O(1) Space:
-def  checkLeaderInArr_SuffixMax(nums):
+def checkLeaderInArr_SuffixMax(nums):
     resultArr = []
     n = len(nums)
 
     maxRightEle = nums[-1]
     resultArr.append(maxRightEle)
 
-    for i in range(n-2, -1, -1):
-        if nums[i]  > maxRightEle:
+    for i in range(n - 2, -1, -1):
+        if nums[i] > maxRightEle:
             maxRightEle = nums[i]
             resultArr.append(maxRightEle)
 
     resultArr.reverse()
     return resultArr
 
+
+# Move all zeros to the end of the array while keeping the order of non-zero elements.
+# Input:  [0, 1, 0, 3, 12]
+# Output: [1, 3, 12, 0, 0]
+
+inputArr = [0, 1, 0, 3, 12]
+
+
+def moveZeroesToEnd(arr):
+    pointer = 0
+
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[pointer] = arr[i]
+            pointer += 1
+
+    for i in range(pointer, len(arr)):
+        arr[i] = 0
+
+
+moveZeroesToEnd(inputArr)
